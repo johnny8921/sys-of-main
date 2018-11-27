@@ -1,0 +1,24 @@
+{% extends 'work/base.html' %}
+{% block content %}
+<h3> Выполненные работы</h3>
+    <table class="table table-hover">
+        <thead class="">
+            <tr>
+                <th>Дата работы</th>
+                <th>Автор</th>
+                <th>Устройство</th>
+                <th>Наименование работы</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for work in works %}
+            <tr>
+                <td><a href=" {% url 'work_detail' pk=work.pk %} " class="tableLinkColor">{{ work.published_date }}</a></td>
+                <td><a href=" {% url 'work_detail' pk=work.pk %} " class="tableLinkColor">{{ work.author.last_name}} {{ work.author.first_name}}</a></td>
+                <td><a href=" {% url 'work_detail' pk=work.pk %} " class="tableLinkColor">{{ work.deviceType }} {{ work.number }}</a></td>
+                <td><a href=" {% url 'work_detail' pk=work.pk %} " class="tableLinkColor">{{ work.workBody}}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}    

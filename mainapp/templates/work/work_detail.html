@@ -1,0 +1,28 @@
+{% extends 'work/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="card">
+    <img src="{% static 'img/wrench.jpg' %}" alt="My image" width="512">
+    <img src="#" alt="">
+    <div class="card-body"> 
+        <h5 class="card-title mb-0">{{ work.deviceType }} {{ work.number }}</h5>
+        <p class="card-context"> 
+            {{ work.workBody}}
+        </p>
+        <p class="card-context"> 
+            Создана: {{ work.published_date }}
+        </p>
+        <p class="card-context"> 
+            Автор: {{ work.author.last_name}} {{ work.author.first_name}}
+        </p>
+    </div>
+    <div class="card-body">
+        <!-- <a href="#" class="btn btn-primary">Редактировать</a> -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'work_edit' pk=work.pk %}" class="btn btn-success">Редактировать</a>
+        {% endif %}
+        <a href="/" class="btn btn-primary">Назад</a>
+    </div>
+</div>
+{% endblock %}    

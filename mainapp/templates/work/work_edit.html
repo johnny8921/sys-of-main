@@ -1,0 +1,34 @@
+{% extends 'work/base.html' %}
+
+{% block content %}
+    <h3>Работа</h3>
+    <form method="POST"> {% csrf_token %}
+        <div class="form-group row"></div>
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
+
+
+<!-- 
+<form>
+        <div class="form-group row"></div>
+            <label class="col-sm-3 col-form-label" for="deviceName">Имя устройства</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="deviceName">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="deviceType">Тип устройства</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="deviceType">
+            </div>
+        </div>
+        
+        <div class="row">
+             <div class="col-sm-9 offset-sm-3">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </div>
+        </div>
+    </form -->
